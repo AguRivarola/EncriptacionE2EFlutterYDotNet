@@ -1,0 +1,88 @@
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\appsettings.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.exe
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.deps.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.runtimeconfig.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.pdb
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.AssemblyReference.cache
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.AssemblyInfoInputs.cache
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.AssemblyInfo.cs
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.CoreCompileInputs.cache
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\scopedcss\bundle\pocEncriptacion.styles.css
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.CopyComplete
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\refint\pocEncriptacion.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.pdb
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.genruntimeconfig.cache
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\ref\pocEncriptacion.dll
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.pocEncriptacion.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.build.pocEncriptacion.props
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.pocEncriptacion.props
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.pocEncriptacion.props
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\arivarola\Documents\EncodeSA\dotNet\PocEncriptacion\pocEncriptacion\bin\Debug\net6.0\X25519.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\appsettings.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.exe
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.deps.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.runtimeconfig.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\pocEncriptacion.pdb
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\X25519.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.AssemblyReference.cache
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.AssemblyInfoInputs.cache
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.AssemblyInfo.cs
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.CoreCompileInputs.cache
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.pocEncriptacion.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.build.pocEncriptacion.props
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.pocEncriptacion.props
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.pocEncriptacion.props
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\scopedcss\bundle\pocEncriptacion.styles.css
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.csproj.CopyComplete
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\refint\pocEncriptacion.dll
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.pdb
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\pocEncriptacion.genruntimeconfig.cache
+C:\Users\arivarola\Documents\GitHub Personalñ\EncriptacionE2EFlutterYDotNet\EncriptacionE2EFlutterYDotNet\dotNet\pocEncriptacion\obj\Debug\net6.0\ref\pocEncriptacion.dll
