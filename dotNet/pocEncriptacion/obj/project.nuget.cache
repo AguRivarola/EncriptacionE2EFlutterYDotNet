@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BEyAH1K4X/uw/knzxFKX8xD7ifrtIy3HHmjND/PUAOE+KKY4lxjRNYVCeZIncBdDM1WDbNDwZfBcwK7pyTDl8g==",
+  "dgSpecHash": "aLhdTR3hqzLrU98pphguVa2HK3rOu2qdWgg9yrnxfqKtUEX/wtJaemfDzbrggWj+aVFIeS5x09dtXHrNaNc1/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\pocEncriptacion.csproj",
+  "projectFilePath": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arivarola\\.nuget\\packages\\easy-x25519\\1.0.0\\easy-x25519.1.0.0.nupkg.sha512",
     "C:\\Users\\arivarola\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",

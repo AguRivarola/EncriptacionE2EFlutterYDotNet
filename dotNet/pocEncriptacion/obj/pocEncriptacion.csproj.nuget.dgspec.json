@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\pocEncriptacion.csproj": {}
+    "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\pocEncriptacion.csproj": {
+    "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\pocEncriptacion.csproj",
+        "projectUniqueName": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
         "projectName": "pocEncriptacion",
-        "projectPath": "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\pocEncriptacion.csproj",
+        "projectPath": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
         "packagesPath": "C:\\Users\\arivarola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arivarola\\Documents\\EncodeSA\\dotNet\\PocEncriptacion\\pocEncriptacion\\obj\\",
+        "outputPath": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

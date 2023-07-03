@@ -16,38 +16,40 @@ public class WeatherForecastController : ControllerBase
         // public List<Byte> Key { get; set; }
         public String Key { get; set; }
     }
+
+    public class MensajeEncriptado
+    {
+        // public List<Byte> Key { get; set; }
+        public String mensaje { get; set; }
+    }
     // {"Key":[247,193,136,116,186,149,81,204,162,74,149,9,203,69,39,55,155,191,239,193,120,181,163,198,225,181,233,174,14,62,37,59]}
-    [HttpPost(Name = "IntercambioDeClaves")]
+    [HttpPost("ComunicacionSegura")]
+    public string Post([FromBody] MensajeEncriptado encripted)
+    {
+        Console.WriteLine("Recibido desde Dart:");
+        Console.WriteLine(encripted.mensaje);
+
+        string decrypted = Decrypt(encripted.mensaje);
+
+        Console.WriteLine("Mensaje desencriptado");
+        Console.WriteLine(decrypted);
+        
+        return Encrypt("Vengo de .Net");
+    }
+
+    [HttpPost("IntercambioDeClaves")]
     public String Post([FromBody] KeyRecibida publicKeyAlice)
     {
         Console.WriteLine("Recibido:");
         Console.WriteLine(publicKeyAlice);
         Console.WriteLine(publicKeyAlice.Key);
         var keyPair = X25519KeyAgreement.GenerateKeyPair();
-        //saving key bytes as base64 string
-
-        string remoteKeyBase64 = publicKeyAlice.Key;
+        string dartKey = publicKeyAlice.Key;
         byte[] sharedKeyBytes = X25519KeyAgreement.Agreement(keyPair.PrivateKey,
-         Convert.FromBase64String(remoteKeyBase64));
+         Convert.FromBase64String(dartKey));
         Console.WriteLine("Secret generado: ");
         Console.WriteLine(Convert.ToBase64String(sharedKeyBytes));
-        key ="xPlWWt8b46WouBmIyGPrFEbH2y8kTDz0gKvWqXxLxjE=";//Convert.ToBase64String(sharedKeyBytes);
-
-        String encrypted = Decrypt("6LEOKwHAL92BSN7GToosvOtVlRwsJoHmeQRFd2dM645GXfm3VIV2mAIckRASsAh67RBIHFdZc0GOQqCQIGJr/qTtZNFYfTbc2V8RdN7G4jw=");
-        Console.WriteLine(encrypted);
-        // Console.WriteLine(Decrypt(encrypted));
-        /****************Prueba************/
-        
-        // string retorno = Decrypt(
-        //     Convert.FromBase64String("a8dbbae638cc56d93c3208da8c3f7a2981df846dad43dee3ff3f0b7fc49dee349039cefb11a26377036e88b1cda13c9b591fa600be359420da29b4124e8fd9fc"),
-        //     // Convert.FromBase64String("kG6KTBm3eVFghX8iTwm3ECIIqBauVe6bCjhzkQChuBw="),
-        //     Convert.FromBase64String("R8dEI9qzw1wHKEeeY3vh2Mkq7reVbDAs="),
-        //     new byte[16]);
-
-
-        // Console.WriteLine(retorno);
-
-        /****************Fin Pruebaq******/
+        key = Convert.ToBase64String(sharedKeyBytes);
         return Convert.ToBase64String(keyPair.PublicKey);
     }
     private string Decrypt(byte[] encryptedBytes, byte[] key, byte[] vector)
@@ -58,84 +60,82 @@ public class WeatherForecastController : ControllerBase
         var memoryStream = new MemoryStream(encryptedBytes);
         var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
         var streamReader = new StreamReader(cryptoStream, System.Text.Encoding.UTF8);
-
         return streamReader.ReadToEnd();
-
     }
-public static string key;
-private const int Keysize = 256;
-private const int DerivationIterations = 100;
+    public static string key;
+    private const int Keysize = 256;
+    private const int DerivationIterations = 100;
 
-public string Encrypt(string plainText)
-{  
-    var saltStringBytes = Generate256BitsOfRandomEntropy();
-    var ivStringBytes = Generate256BitsOfRandomEntropy();
-    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-    using (var password = new Rfc2898DeriveBytes(key, saltStringBytes, DerivationIterations))
+    public string Encrypt(string plainText)
     {
-        var keyBytes = password.GetBytes(Keysize / 8);
-        using (var symmetricKey = new RijndaelManaged())
+        var saltStringBytes = Generate256BitsOfRandomEntropy();
+        var ivStringBytes = Generate256BitsOfRandomEntropy();
+        var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        using (var password = new Rfc2898DeriveBytes(key, saltStringBytes, DerivationIterations))
         {
-            symmetricKey.BlockSize = 128;
-            symmetricKey.Mode = CipherMode.CBC;
-            //symmetricKey.Padding = PaddingMode.PKCS7;
-            using (var encryptor = symmetricKey.CreateEncryptor(keyBytes, ivStringBytes))
+            var keyBytes = password.GetBytes(Keysize / 8);
+            using (var symmetricKey = new RijndaelManaged())
             {
-                using (var memoryStream = new MemoryStream())
+                symmetricKey.BlockSize = 128;
+                symmetricKey.Mode = CipherMode.CBC;
+                //symmetricKey.Padding = PaddingMode.PKCS7;
+                using (var encryptor = symmetricKey.CreateEncryptor(keyBytes, ivStringBytes))
                 {
-                    using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                    using (var memoryStream = new MemoryStream())
                     {
-                        cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                        cryptoStream.FlushFinalBlock();
-                        var cipherTextBytes = saltStringBytes;
-                        cipherTextBytes = cipherTextBytes.Concat(ivStringBytes).ToArray();
-                        cipherTextBytes = cipherTextBytes.Concat(memoryStream.ToArray()).ToArray();
-                        memoryStream.Close();
-                        cryptoStream.Close();
-                        return Convert.ToBase64String(cipherTextBytes);
+                        using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                        {
+                            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                            cryptoStream.FlushFinalBlock();
+                            var cipherTextBytes = saltStringBytes;
+                            cipherTextBytes = cipherTextBytes.Concat(ivStringBytes).ToArray();
+                            cipherTextBytes = cipherTextBytes.Concat(memoryStream.ToArray()).ToArray();
+                            memoryStream.Close();
+                            cryptoStream.Close();
+                            return Convert.ToBase64String(cipherTextBytes);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-private static byte[] Generate256BitsOfRandomEntropy()
-{
-    var randomBytes = new byte[16]; 
-    using (var rngCsp = new RNGCryptoServiceProvider())
+    private static byte[] Generate256BitsOfRandomEntropy()
     {
-        rngCsp.GetBytes(randomBytes);
-    }
-    return randomBytes;
-}
-
-public string Decrypt(string cipherText)
-{
-    string password = key;
-    byte[] cipherBytes = Convert.FromBase64String(cipherText);
-    using (Aes encryptor = Aes.Create())
-    {
-        var salt = cipherBytes.Take(16).ToArray();
-        var iv = cipherBytes.Skip(16).Take(16).ToArray();
-        var encrypted = cipherBytes.Skip(32).ToArray();
-        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(password, salt, 100);
-        encryptor.Key = pdb.GetBytes(32);
-        encryptor.Padding = PaddingMode.PKCS7;
-        encryptor.Mode = CipherMode.CBC;
-        encryptor.IV = iv;
-        using (MemoryStream ms = new MemoryStream(encrypted))
+        var randomBytes = new byte[16];
+        using (var rngCsp = new RNGCryptoServiceProvider())
         {
-            using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Read))
+            rngCsp.GetBytes(randomBytes);
+        }
+        return randomBytes;
+    }
+
+    public string Decrypt(string cipherText)
+    {
+        string password = key;
+        byte[] cipherBytes = Convert.FromBase64String(cipherText);
+        using (Aes encryptor = Aes.Create())
+        {
+            var salt = cipherBytes.Take(16).ToArray();
+            var iv = cipherBytes.Skip(16).Take(16).ToArray();
+            var encrypted = cipherBytes.Skip(32).ToArray();
+            Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(password, salt, 100);
+            encryptor.Key = pdb.GetBytes(32);
+            encryptor.Padding = PaddingMode.PKCS7;
+            encryptor.Mode = CipherMode.CBC;
+            encryptor.IV = iv;
+            using (MemoryStream ms = new MemoryStream(encrypted))
             {
-                using (var reader = new StreamReader(cs, System.Text.Encoding.UTF8))
+                using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Read))
                 {
-                    return reader.ReadToEnd();
+                    using (var reader = new StreamReader(cs, System.Text.Encoding.UTF8))
+                    {
+                        return reader.ReadToEnd();
+                    }
                 }
             }
         }
     }
-}
 }
 
 
