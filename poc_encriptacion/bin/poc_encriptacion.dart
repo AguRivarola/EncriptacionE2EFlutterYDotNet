@@ -1,15 +1,16 @@
 import 'dart:convert';
-import 'package:cryptography/cryptography.dart';
+import 'dart:typed_data';
+import 'package:cryptography/cryptography.dart' as crypt;
 import 'package:http/http.dart';
-import 'package:encrypt/encrypt.dart';
-import 'package:aes256gcm/aes256gcm.dart';
+import 'dart:math';
+import 'package:pointycastle/export.dart';
 
 Future<void> main(List<String> arguments) async {
   //https://pub.dev/documentation/cryptography/latest/cryptography/X25519-class.html
 
-  final algorithm = Cryptography.instance.x25519();
+  final algorithm = crypt.Cryptography.instance.x25519();
   final keyPair = await algorithm.newKeyPair();
-  SimplePublicKey publicKey = await keyPair.extractPublicKey();
+  crypt.SimplePublicKey publicKey = await keyPair.extractPublicKey();
   //saving key bytes as base64 string
   String keyPublicaDart = base64.encode(publicKey.bytes);
   print("Key actual");
@@ -20,61 +21,154 @@ Future<void> main(List<String> arguments) async {
   print("Key .Net");
   print(remoteKeyBase64);
 
-  SimplePublicKey remotePublicKey =
-      SimplePublicKey(base64.decode(remoteKeyBase64), type: KeyPairType.x25519);
+  crypt.SimplePublicKey remotePublicKey = crypt.SimplePublicKey(
+      base64.decode(remoteKeyBase64),
+      type: crypt.KeyPairType.x25519);
   final sharedSecretKey = await algorithm.sharedSecretKey(
     keyPair: keyPair,
     remotePublicKey: remotePublicKey,
   );
 
   List<int> sharedKeyBytes = await sharedSecretKey.extractBytes();
-  print(sharedKeyBytes);
   final privateKeyGenerada = base64.encode(sharedKeyBytes);
   print("Secret:");
   print(privateKeyGenerada);
-  print("Key con 32 Char:");
-  print(privateKeyGenerada.substring(11));
+  Uint8List plaintext =
+      Uint8List.fromList(utf8.encode("{\"name\":\"nombredePrueba[]\"}"));
+  Uint8List passphrase = Uint8List.fromList(utf8.encode(privateKeyGenerada));
 
-//https://pub.dev/packages/aes256gcm
-  var text = 'SOME DATA TO ENCRYPT';
-  var password = privateKeyGenerada.substring(11);
+  // Generate random 16 bytes salt and random 16 bytes IV
+  SecureRandom secureRandom = getSecureRandom();
+  Uint8List salt = secureRandom.nextBytes(16);
+  Uint8List iv = secureRandom.nextBytes(16);
 
-  var encrypted = await Aes256Gcm.encrypt(text, password);
-  var decrypted = await Aes256Gcm.decrypt(encrypted as String, password);
+// Derive 32 bytes key via PBKDF2
+  Uint8List key = deriveKey(salt, passphrase);
 
-  print(encrypted);
-  print(decrypted);
-  // final plainText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
-  // final key = Key.fromUtf8('J2oeoj16Qx+KkTNglepNXFKehlwnB/nj');
-  // final iv = IV.fromLength(16);
+// Encrypt with AES-256/CBC/PKCS#7 padding
+  Uint8List ciphertext = encryptAesCbcPkcs7(plaintext, key, iv);
 
-  // final encrypter = Encrypter(AES(key));
-
-  // final encrypted = encrypter.encrypt(plainText, iv: iv);
-  // final decrypted = encrypter.decrypt(encrypted, iv: iv);
-
-  // print(decrypted); // Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  // print(encrypted.base64);
+// Concat salt|nonce|ciphertext and Base64 encode
+  String saltIvCiphertextB64 = concatAndEncode(salt, iv, ciphertext);
+  print("Mensaje encriptado desde Dart");
+  print(saltIvCiphertextB64);
+  String retorno = await enviarMensajeEncriptado(saltIvCiphertextB64);
+  print("Mensaje retornado desde .Net");
+  print(retorno);
+  desencript(retorno, passphrase);
 }
 
 Future<String> enviarKeys(String publicKey) async {
   final response = await post(
-    Uri.parse('https://localhost:7286/ecdh'),
+    Uri.parse('https://localhost:7286/ecdh/IntercambioDeClaves'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
-    // body: publicKey.bytes,
     body: jsonEncode(<String, String>{
       'Key': publicKey,
     }),
   );
   if (response.statusCode == 200) {
-    // If the server did return a 201 CREATED response,
-    // then parse the JSON.
     return response.body;
   } else {
-    // If the server did not return a 201 CREATED response,
-    // then throw an exception.
-    throw Exception('Failed to create album.');
+    throw Exception('No se pudo realizar el intercambio de ECDH');
   }
+}
+
+Future<String> enviarMensajeEncriptado(String mensaje) async {
+  final response = await post(
+    Uri.parse('https://localhost:7286/ecdh/ComunicacionSegura'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'mensaje': mensaje,
+    }),
+  );
+  if (response.statusCode == 200) {
+    return response.body;
+  } else {
+    throw Exception('No se pudo realizar el intercambio de mensaje seguro');
+  }
+}
+
+String concatAndEncode(Uint8List salt, Uint8List iv, Uint8List ciphertext) {
+  BytesBuilder saltIvCiphertext = BytesBuilder();
+  saltIvCiphertext.add(salt);
+  saltIvCiphertext.add(iv);
+  saltIvCiphertext.add(ciphertext);
+  String saltIvCiphertextB64 = base64Encode(saltIvCiphertext.toBytes());
+  return saltIvCiphertextB64;
+}
+
+Uint8List encryptAesCbcPkcs7(Uint8List plaintext, Uint8List key, Uint8List iv) {
+  CBCBlockCipher cipher = CBCBlockCipher(AESEngine());
+  ParametersWithIV<KeyParameter> params =
+      ParametersWithIV<KeyParameter>(KeyParameter(key), iv);
+  PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>
+      paddingParams =
+      PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>(
+          params, null);
+  PaddedBlockCipherImpl paddingCipher =
+      PaddedBlockCipherImpl(PKCS7Padding(), cipher);
+  paddingCipher.init(true, paddingParams);
+  Uint8List ciphertext = paddingCipher.process(plaintext);
+  return ciphertext;
+}
+
+Uint8List deriveKey(Uint8List salt, Uint8List passphrase) {
+  KeyDerivator derivator = KeyDerivator('SHA-1/HMAC/PBKDF2');
+  Pbkdf2Parameters params = Pbkdf2Parameters(salt, 100, 256 ~/ 8);
+  derivator.init(params);
+  return derivator.process(passphrase);
+}
+
+SecureRandom getSecureRandom() {
+  List<int> seed = List<int>.generate(32, (_) => Random.secure().nextInt(256));
+  return FortunaRandom()..seed(KeyParameter(Uint8List.fromList(seed)));
+}
+
+///*//
+///
+///
+///
+///
+///*/*/*/*/** */
+void desencript(String encrypted, Uint8List passphrase) {
+  String saltIvCiphertextB64 = encrypted; // Obtén el valor cifrado en Base64
+
+  Uint8List salt, iv, ciphertext;
+  // Decodifica el valor cifrado en Base64 y obtén salt, iv y ciphertext
+  Uint8List saltIvCiphertext = base64Decode(saltIvCiphertextB64);
+  salt = saltIvCiphertext.sublist(0, 16);
+  iv = saltIvCiphertext.sublist(16, 32);
+  ciphertext = saltIvCiphertext.sublist(32);
+
+  Uint8List key = deriveKey(salt, passphrase);
+
+  Uint8List decryptedText = decryptAesCbcPkcs7(ciphertext, key, iv);
+
+  String plaintext = utf8.decode(decryptedText);
+
+  print("Mensaje desencriptado recibido desde .Net");
+  print(plaintext);
+}
+
+void decodeAndSplit(String saltIvCiphertextB64, Uint8List salt, Uint8List iv,
+    Uint8List ciphertext) {}
+
+Uint8List decryptAesCbcPkcs7(
+    Uint8List ciphertext, Uint8List key, Uint8List iv) {
+  CBCBlockCipher cipher = CBCBlockCipher(AESEngine());
+  ParametersWithIV<KeyParameter> params =
+      ParametersWithIV<KeyParameter>(KeyParameter(key), iv);
+  PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>
+      paddingParams =
+      PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>(
+          params, null);
+  PaddedBlockCipherImpl paddingCipher =
+      PaddedBlockCipherImpl(PKCS7Padding(), cipher);
+  paddingCipher.init(false, paddingParams);
+  Uint8List decryptedText = paddingCipher.process(ciphertext);
+  return decryptedText;
 }
