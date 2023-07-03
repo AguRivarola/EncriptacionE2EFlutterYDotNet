@@ -24,6 +24,7 @@ void main(List<String> args) {
   String saltIvCiphertextB64 = concatAndEncode(salt, iv, ciphertext);
 
   print(saltIvCiphertextB64);
+  desencript(saltIvCiphertextB64);
 }
 
 String concatAndEncode(Uint8List salt, Uint8List iv, Uint8List ciphertext) {
@@ -60,4 +61,49 @@ Uint8List deriveKey(Uint8List salt, Uint8List passphrase) {
 SecureRandom getSecureRandom() {
   List<int> seed = List<int>.generate(32, (_) => Random.secure().nextInt(256));
   return FortunaRandom()..seed(KeyParameter(Uint8List.fromList(seed)));
+}
+
+///*//
+///
+///
+///
+///
+///*/*/*/*/** */
+void desencript(String encrypted) {
+  String saltIvCiphertextB64 = encrypted; // Obtén el valor cifrado en Base64
+
+  Uint8List salt, iv, ciphertext;
+  // Decodifica el valor cifrado en Base64 y obtén salt, iv y ciphertext
+  Uint8List saltIvCiphertext = base64Decode(saltIvCiphertextB64);
+  salt = saltIvCiphertext.sublist(0, 16);
+  iv = saltIvCiphertext.sublist(16, 32);
+  ciphertext = saltIvCiphertext.sublist(32);
+  Uint8List passphrase = Uint8List.fromList(
+      utf8.encode("xPlWWt8b46WouBmIyGPrFEbH2y8kTDz0gKvWqXxLxjE="));
+
+  Uint8List key = deriveKey(salt, passphrase);
+
+  Uint8List decryptedText = decryptAesCbcPkcs7(ciphertext, key, iv);
+
+  String plaintext = utf8.decode(decryptedText);
+  print(plaintext);
+}
+
+void decodeAndSplit(String saltIvCiphertextB64, Uint8List salt, Uint8List iv,
+    Uint8List ciphertext) {}
+
+Uint8List decryptAesCbcPkcs7(
+    Uint8List ciphertext, Uint8List key, Uint8List iv) {
+  CBCBlockCipher cipher = CBCBlockCipher(AESEngine());
+  ParametersWithIV<KeyParameter> params =
+      ParametersWithIV<KeyParameter>(KeyParameter(key), iv);
+  PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>
+      paddingParams =
+      PaddedBlockCipherParameters<ParametersWithIV<KeyParameter>, Null>(
+          params, null);
+  PaddedBlockCipherImpl paddingCipher =
+      PaddedBlockCipherImpl(PKCS7Padding(), cipher);
+  paddingCipher.init(false, paddingParams);
+  Uint8List decryptedText = paddingCipher.process(ciphertext);
+  return decryptedText;
 }
