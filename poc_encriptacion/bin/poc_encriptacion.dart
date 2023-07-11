@@ -50,23 +50,26 @@ Future<void> main(List<String> arguments) async {
 
 // Concat salt|nonce|ciphertext and Base64 encode
   String saltIvCiphertextB64 = concatAndEncode(salt, iv, ciphertext);
-  print("Mensaje encriptado desde Dart");
-  print(saltIvCiphertextB64);
-  String retorno = await enviarMensajeEncriptado(saltIvCiphertextB64);
+  // print("Mensaje encriptado desde Dart");
+  // print(saltIvCiphertextB64);
+  // String retorno = await enviarMensajeEncriptado(saltIvCiphertextB64);
+  String retorno = await getCertificates(saltIvCiphertextB64);
   print("Mensaje retornado desde .Net");
   print(retorno);
   desencript(retorno, passphrase);
 }
 
+String urlBase = "https://localhost:7151/Encustody";
+String tokenDotNet =
+    "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJSMlpCUGNrZW9wUUh2WjVWSXVsc2JxaTBfQXZVZkpPTUhaNTQ4N0xXNVpZIn0.eyJqdGkiOiI5ZDM4OGViNS03YzEyLTQzYjUtYTg4Mi1iOTgxYzQ4Y2NjZjkiLCJleHAiOjE2ODkxMzE2NDgsIm5iZiI6MCwiaWF0IjoxNjg5MDk1NjQ4LCJpc3MiOiJodHRwczovL2F1dGgtdGVzdC5lbmN1c3RvZHkuY29tLmFyL2F1dGgvcmVhbG1zL0VOQ09ERSIsImF1ZCI6WyJzaWduYXR1cmUtc2VydmljZSIsImFjY291bnQiXSwic3ViIjoiOWI1M2MzNzYtOGYxNS00MjA5LWIzZjYtODRhZTNhYzVmMTY0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2VydmljaW8tY3VzdG9kaWEiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIyNjcwYmViYS1jOWUxLTQwNTctOWQ1MC03NDk1YmQ1ZTIyODUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZmlybWFkb3ItdGVzdC5lbmN1c3RvZHkuY29tLmFyLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIiwiY2EiXX0sInJlc291cmNlX2FjY2VzcyI6eyJzaWduYXR1cmUtc2VydmljZSI6eyJyb2xlcyI6WyJtYW5hZ2UtY3VzdG9tZXJzIiwibWFuYWdlLXNpZ25pbmctcmVxdWVzdCIsInZpZXctc2lnbmluZy1yZXF1ZXN0Il19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IkZhY3VuZG8gWmVycGEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiIyMDM2MjI1Mzg1NCIsImdpdmVuX25hbWUiOiJGYWN1bmRvIiwibG9jYWxlIjoiZXMiLCJmYW1pbHlfbmFtZSI6IlplcnBhIiwiZW1haWwiOiJmemVycGFAZW5jb2Rlc2EuY29tLmFyIn0.PhXHPxjG3Aclv-sLsbQ92lCuc3ly-YT25nZyl3tFl9YMOKGRC8bVMAey-r0YbcodPaNH4qsMjgsYxSjSfkz_it41Lc82cxLSByFCJPa17f_MUXqxIp2CjpKjq4TsKODtd28xoADMjNJO9ps5WXNt5jlG_jkAnDmhZYGvJ5dhnrUwoyktdyNV3L-b-ttV-A4kC1r2q3ZZ387KxASF8_eV6uWyxX_rCH3p9OGRJwy4jYBulb8YJo45dRS1Xj5QO6R4IyC-cnUmzsXNoPk59Uc8j9c2XlEeFTIPDCLZ5bAe6SIFFsHMbCuM-DhRsDebfRac8N0BL84rzLxi3zfnS8rhLA";
+
 Future<String> enviarKeys(String publicKey) async {
   final response = await post(
-    Uri.parse('https://localhost:7286/ecdh/IntercambioDeClaves'),
+    Uri.parse(urlBase + '/changeKey'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
-    body: jsonEncode(<String, String>{
-      'Key': publicKey,
-    }),
+    body: jsonEncode(<String, String>{'Key': publicKey, 'Cuil': "20362253854"}),
   );
   if (response.statusCode == 200) {
     return response.body;
@@ -77,17 +80,34 @@ Future<String> enviarKeys(String publicKey) async {
 
 Future<String> enviarMensajeEncriptado(String mensaje) async {
   final response = await post(
-    Uri.parse('https://localhost:7286/ecdh/ComunicacionSegura'),
+    Uri.parse(urlBase + '/chatSecurity'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
-    body: jsonEncode(<String, String>{
-      'mensaje': mensaje,
-    }),
+    body:
+        jsonEncode(<String, String>{'Message': mensaje, 'Cuil': "21412657188"}),
   );
   if (response.statusCode == 200) {
     return response.body;
   } else {
+    throw Exception('No se pudo realizar el intercambio de mensaje seguro');
+  }
+}
+
+Future<String> getCertificates(String mensaje) async {
+  final response = await post(
+    Uri.parse(urlBase + '/certificates'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + tokenDotNet,
+    },
+  );
+
+  if (response.statusCode == 200) {
+    return response.body;
+  } else {
+    print(response.statusCode);
     throw Exception('No se pudo realizar el intercambio de mensaje seguro');
   }
 }
