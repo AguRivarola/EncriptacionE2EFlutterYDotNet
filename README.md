@@ -4,7 +4,7 @@ Utilizacion de intercambio de claves de manera publica, generado de secret y enc
 
 ## Tecnologias Utilizadas:
 
-- Dart
+- Dart 3.0.6
   - 
       - basic_utils: ^5.6.0
       - crypto_keys: ^0.3.0+1
