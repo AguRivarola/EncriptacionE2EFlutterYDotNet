@@ -32,7 +32,7 @@ dotnet run obj/Debug/net6.0/pocEncriptacion.dll
 '''
 
 
-## Dart
+## Dart (En otra consola para que pueda seguir corriendo el dll)
 
 Posicionarse en la carpeta de proyecto dart:
 '''
