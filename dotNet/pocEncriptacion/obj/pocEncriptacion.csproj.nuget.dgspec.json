@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\Proyectos\\Encriptacion\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {
+    "C:\\Users\\Usuario\\Documents\\Proyectos\\Encriptacion\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Proyectos\\Encriptacion\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
         "projectName": "pocEncriptacion",
-        "projectPath": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
-        "packagesPath": "C:\\Users\\arivarola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arivarola\\Documents\\GitHub Personalñ\\EncriptacionE2EFlutterYDotNet\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Encriptacion\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\pocEncriptacion.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Encriptacion\\EncriptacionE2EFlutterYDotNet\\dotNet\\pocEncriptacion\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\arivarola\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }
