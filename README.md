@@ -4,6 +4,15 @@ Utilizacion de intercambio de claves de manera publica, generado de secret y enc
 
 ## Tecnologias Utilizadas:
 
+- Curva: x25519
+- Padding: PKCS7
+- Keysize: 256
+- Iteraciones de derivacion: 100
+- Encriptacion: AES con CBC
+- Derivacion clave : PBKDF2 (SHA-1/HMAC/PBKDF2)
+- IV: 16bytes
+- salt: 16bytes
+
 - Dart 3.0.6
   - 
       - basic_utils: ^5.6.0
